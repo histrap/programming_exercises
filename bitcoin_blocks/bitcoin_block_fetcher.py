@@ -31,7 +31,17 @@ def create_tables(conn):
     c.execute("CREATE TABLE IF NOT EXISTS blocks (hash text primary key, timestamp INTEGER, block_index INTEGER, height INTEGER)")
     conn.commit()
 
+'''
+To do:
+    Write a function def get_max_block to fetch the latest block i.e. the most recent block
+'''
+
 def print_blocks(conn):
+    '''
+    To do
+        1. Instead of unix timestamp in seconds, print actual date. i.e. instead of 1598456000
+            print 2020-08-26T15:33:20+00:00
+    '''
     c = conn.cursor()
     c.execute("SELECT * FROM blocks")
     for row in c.fetchall():
