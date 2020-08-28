@@ -15,7 +15,7 @@ def get_latest_block(url):
 def write_block_to_db(conn, block):
     c = conn.cursor()
     try:
-        c.execute("INSERT INTO blocks VALUES('%s', '%d', %d, %d)" %(block['hash'], block['time'], block['block_index'], block['height']))
+        c.execute("INSERT INTO blocks VALUES('%s', %d, %d, %d)" %(block['hash'], block['time'], block['block_index'], block['height']))
     except sqlite3.IntegrityError:
         pass
     except Exception as e:
